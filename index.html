@@ -2,158 +2,199 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>杨昊澄的学术主页</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>杨昊澄的主页</title>
   <style>
-    body {
+    html, body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      padding: 0;
+      font-family: "Noto Serif SC", serif;
       color: #333;
-      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
     }
-    .header {
-      background-color: #004c6d;
-      color: white;
-      padding: 2rem 1rem;
+    .bg-slider {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+    .bg-slider img {
+      position: absolute;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: fade 18s infinite;
+    }
+    .bg-slider img:nth-child(1) { animation-delay: 0s; }
+    .bg-slider img:nth-child(2) { animation-delay: 6s; }
+    .bg-slider img:nth-child(3) { animation-delay: 12s; }
+
+    @keyframes fade {
+      0%   { opacity: 0; }
+      10%  { opacity: 1; }
+      30%  { opacity: 1; }
+      40%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    header {
+      background: rgba(230, 223, 211, 0.85);
+      padding: 2rem;
       text-align: center;
+      border-bottom: 1px solid #ccc;
+      position: relative;
     }
-    .header h1 {
+    header h1 {
+      font-size: 2.8rem;
       margin: 0;
-      font-size: 2.5rem;
+      color: #5c4a3f;
     }
-    .header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.1rem;
+    .language-menu {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
     }
-    .container {
+    .language-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background-color: #eee5d9;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .language-menu > ul > li {
+      position: relative;
+    }
+    .language-menu a {
+      text-decoration: none;
+      color: #3e3229;
+      font-weight: bold;
+      display: block;
+      padding: 0.4rem 1rem;
+    }
+    .language-menu ul ul {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+    }
+    .language-menu li:hover > ul {
+      display: block;
+    }
+    nav {
+      background-color: rgba(220, 211, 194, 0.9);
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: flex;
     }
-    .sidebar {
-      width: 220px;
-      background-color: #e9ecef;
-      padding-top: 1rem;
-      min-height: 100vh;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    nav li {
+      position: relative;
+      margin: 0 1rem;
     }
-    .sidebar a {
-      display: block;
-      padding: 0.8rem 1rem;
-      color: #333;
+    nav a {
       text-decoration: none;
-    }
-    .sidebar a:hover, .sidebar a.active {
-      background-color: #dee2e6;
+      color: #3e3229;
       font-weight: bold;
-    }
-    .content {
-      flex: 1;
-      padding: 2rem;
-    }
-    section {
-      display: none;
-    }
-    section.active {
+      padding: 0.5rem;
       display: block;
     }
-    h2 {
-      border-bottom: 2px solid #004c6d;
-      padding-bottom: 0.3rem;
-      margin-top: 2rem;
+    nav li:hover ul {
+      display: block;
+    }
+    nav ul ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #eee5d9;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav ul ul li {
+      width: 150px;
+    }
+    main {
+      padding: 2rem;
+      font-size: 1.1rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      margin: 2rem;
+      border-radius: 8px;
+      flex: 1;
     }
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 1rem;
+      background-color: rgba(230, 223, 211, 0.85);
       font-size: 0.9rem;
-      color: #777;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>Haocheng Yang</h1>
-    <p>PhD Student in Physical Oceanography, Stony Brook University | Internal Waves, Mesoscale Eddies using Observation and Models</p>
-    <p><a href="mailto:haocheng.yang.2@stonybrook.edu" style="color: #a7d8ff;">haocheng.yang.2@stonybrook.edu</a> | <a href="https://github.com/yourname" target="_blank" style="color: #a7d8ff;">GitHub</a></p>
+  <div class="bg-slider">
+    <img src="R.jpg" alt="">
+    <img src="paris.jpeg" alt="">
+    <img src="eddies.avif" alt="">
   </div>
 
-  <div class="container">
-    <div class="sidebar">
-      <a href="#" class="active" onclick="showSection('about')">个人介绍</a>
-      <a href="#" onclick="showSection('education')">教育经历</a>
-      <a href="#" onclick="showSection('cv')">CV</a>
-      <a href="#" onclick="showSection('publications')">学术发表</a>
-      <a href="#" onclick="showSection('database')">数据库</a>
-      <a href="#" onclick="showSection('notes')">项目和学术日志</a>
-      <a href="#" onclick="showSection('library')">有趣的论文</a>
-    </div>
-
-    <div class="content">
-      <section id="about" class="active">
-        <h2>个人介绍</h2>
-        <p>在此填写你的研究兴趣、背景、自我介绍等内容。</p>
-      </section>
-
-      <section id="education">
-        <h2>教育经历</h2>
-        <ul>
-          <li><strong>中国海洋大学</strong> – 物理海洋学，本科（2020–2024）</li>
-          <li><strong>纽约州立大学石溪分校</strong> – 物理海洋学，博士在读（2024–至今）</li>
-        </ul>
-      </section>
-
-      <section id="cv">
-        <h2>CV</h2>
-        <p><a href="CV_Haocheng Yang_final_final.pdf" target="_blank">点击下载我的简历（PDF）</a></p>
-      </section>
-
-      <section id="publications">
-        <h2>学术发表</h2>
-        <ul>
-          <li>Yang, H. (2024). Title of the article. <em>Journal Name</em>.</li>
-          <li>Yang, H. & Li, K. (2023). Another article. <em>Political Research Quarterly</em>.</li>
-        </ul>
-      </section>
-
-      <section id="database">
-        <h2>数据库</h2>
-        <ul>
-          <li><a href="https://marine.rutgers.edu/cool/data/gliders/map/" target="_blank">Rutgers University Glider 数据集</a></li>
-          <li><a href="https://po.somas.stonybrook.edu/OGP/index.html" target="_blank">Stony Brook University Glider数据集(.mat/per cruise)</a></li>
-          <li><a href="https://gliders.ioos.us" target="_blank">IOOS Glider数据集(更全面的网站)</a></li>
+  <header>
+    <h1>杨昊澄的个人主页</h1>
+    <p style="color:#7b685c">静以修身，俭以养德</p>
+    <div class="language-menu">
+      <ul>
+        <li><a href="#">语言</a>
+          <ul>
+            <li><a href="#">中文</a></li>
+            <li><a href="#">English</a></li>
+          </ul>
+        </li>
       </ul>
-      </section>
-
-
-      <section id="notes">
-        <h2>项目和学术日志</h2>
-        <ul>
-          <li>《Formal Models of Domestic Politics》读书笔记</li>
-          <li>《数据同化与大气科学》学习笔记</li>
-          <li>《海洋GFD模拟案例总结》</li>
-        </ul>
-      </section>
-
-      <section id="library">
-        <h2>有趣的论文</h2>
-        <ul>
-          <li><strong>哲学：</strong>《疯癫与文明》《存在与时间》</li>
-          <li><strong>小说：</strong>《百年孤独》《红与黑》《卡拉马佐夫兄弟》</li>
-          <li><strong>思想史：</strong>《西方现代思想讲义》《新教伦理与资本主义精神》</li>
-        </ul>
-      </section>
     </div>
-  </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">首页</a></li>
+      <li>
+        <a href="#">科学</a>
+        <ul>
+          <li><a href="physics.html">物理</a></li>
+          <li><a href="#">数学</a></li>
+          <li><a href="#">计算机</a></li>
+          <li><a href="#">历史</a></li>
+          <li><a href="#">社会</a></li>
+          <li><a href="#">政治</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">艺术</a>
+        <ul>
+          <li><a href="#">电影</a></li>
+          <li><a href="#">文学</a></li>
+          <li><a href="#">音乐</a></li>
+        </ul>
+      </li>
+      <li><a href="#">随笔</a></li>
+      <li><a href="#">其他</a></li>
+      <li><a href="#">联系方式</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <p>欢迎来到我的个人主页，我是一个浮躁的人。这里记录我对自然科学、人文艺术、现实社会与内心世界的思考。</p>
+  </main>
 
   <footer>
-    © 2025 杨昊澄 | 版权所有
+    版权所有 © 杨昊澄 2025 | 电子邮箱：haocheng.yang.2@stonybrook.edu
   </footer>
-
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-  </script>
 </body>
 </html>
