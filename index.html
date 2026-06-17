@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>杨昊澄的学术主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+    .header {
+      background-color: #004c6d;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+    }
+    .container {
+      display: flex;
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #e9ecef;
+      padding-top: 1rem;
+      min-height: 100vh;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    .sidebar a {
+      display: block;
+      padding: 0.8rem 1rem;
+      color: #333;
+      text-decoration: none;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background-color: #dee2e6;
+      font-weight: bold;
+    }
+    .content {
+      flex: 1;
+      padding: 2rem;
+    }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      border-bottom: 2px solid #004c6d;
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Haocheng Yang</h1>
+    <p>PhD Student in Physical Oceanography, Stony Brook University | Internal Waves, Mesoscale Eddies using Observation and Models</p>
+    <p><a href="mailto:haocheng.yang.2@stonybrook.edu" style="color: #a7d8ff;">haocheng.yang.2@stonybrook.edu</a> | <a href="https://github.com/yourname" target="_blank" style="color: #a7d8ff;">GitHub</a></p>
+  </div>
+
+  <div class="container">
+    <div class="sidebar">
+      <a href="#" class="active" onclick="showSection('about')">个人介绍</a>
+      <a href="#" onclick="showSection('education')">教育经历</a>
+      <a href="#" onclick="showSection('cv')">CV</a>
+      <a href="#" onclick="showSection('publications')">学术发表</a>
+      <a href="#" onclick="showSection('database')">数据库</a>
+      <a href="#" onclick="showSection('notes')">项目和学术日志</a>
+      <a href="#" onclick="showSection('library')">有趣的论文</a>
+    </div>
+
+    <div class="content">
+      <section id="about" class="active">
+        <h2>个人介绍</h2>
+        <p>在此填写你的研究兴趣、背景、自我介绍等内容。</p>
+      </section>
+
+      <section id="education">
+        <h2>教育经历</h2>
+        <ul>
+          <li><strong>中国海洋大学</strong> – 物理海洋学，本科（2020–2024）</li>
+          <li><strong>纽约州立大学石溪分校</strong> – 物理海洋学，博士在读（2024–至今）</li>
+        </ul>
+      </section>
+
+      <section id="cv">
+        <h2>CV</h2>
+        <p><a href="CV_Haocheng Yang_final_final.pdf" target="_blank">点击下载我的简历（PDF）</a></p>
+      </section>
+
+      <section id="publications">
+        <h2>学术发表</h2>
+        <ul>
+          <li>Yang, H. (2024). Title of the article. <em>Journal Name</em>.</li>
+          <li>Yang, H. & Li, K. (2023). Another article. <em>Political Research Quarterly</em>.</li>
+        </ul>
+      </section>
+
+      <section id="database">
+        <h2>数据库</h2>
+        <ul>
+          <li><a href="https://marine.rutgers.edu/cool/data/gliders/map/" target="_blank">Rutgers University Glider 数据集</a></li>
+          <li><a href="https://po.somas.stonybrook.edu/OGP/index.html" target="_blank">Stony Brook University Glider数据集(.mat/per cruise)</a></li>
+          <li><a href="https://gliders.ioos.us" target="_blank">IOOS Glider数据集(更全面的网站)</a></li>
+      </ul>
+      </section>
+
+
+      <section id="notes">
+        <h2>项目和学术日志</h2>
+        <ul>
+          <li>《Formal Models of Domestic Politics》读书笔记</li>
+          <li>《数据同化与大气科学》学习笔记</li>
+          <li>《海洋GFD模拟案例总结》</li>
+        </ul>
+      </section>
+
+      <section id="library">
+        <h2>有趣的论文</h2>
+        <ul>
+          <li><strong>哲学：</strong>《疯癫与文明》《存在与时间》</li>
+          <li><strong>小说：</strong>《百年孤独》《红与黑》《卡拉马佐夫兄弟》</li>
+          <li><strong>思想史：</strong>《西方现代思想讲义》《新教伦理与资本主义精神》</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 杨昊澄 | 版权所有
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
